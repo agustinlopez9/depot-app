@@ -2,13 +2,13 @@
 
 one:
   title: MyString
-  description: MyText
+  description: this is a test description
   image_url: test.png
   price: 9.99
 
 two:
   title: MyString
-  description: MyText
+  description: this is a test description
   image_url: test.png
   price: 9.99
 

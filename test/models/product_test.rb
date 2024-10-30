@@ -11,6 +11,13 @@ class ProductTest < ActiveSupport::TestCase
     assert product.errors[:image_url].any?
   end
 
+  test "description should be at least 10 characters" do
+    product = Product.new(title: "Short description", description: "test", image_url: "test.jpg", price: 1)
+    assert product.invalid?
+    assert_equal ["is too short (minimum is 10 characters)"],
+      product.errors[:description]
+  end
+
   test "price should be greater than 0" do
     product = Product.new(title: "My Test", description: "My description", image_url: "test.jpg")
     product.price = -1
@@ -28,16 +35,15 @@ class ProductTest < ActiveSupport::TestCase
   end
 
   test "image_url should be valid" do
-    ok = %w{ fred.gif fred.jpg fred.png FRED.JPG FRED.Jpg
-      http://a.b.c/x/y/z/fred.gif }
-    bad = %w{ fred.doc fred.gif/more fred.gif.more }
+    ok = ["fred.gif", "fred.jpg", "fred.png", "FRED.JPG", "FRED.Jpg", "http://a.b.c/x/y/z/fred.gif"]
+    bad = ["fred.doc", "fred.gif/more", "fred.gif.more"]
 
-    ok.each do |name|
-      assert new_product(name).valid?, "#{name} should be valid"
+    ok.each do |image_url|
+      assert new_product(image_url).valid?, "#{image_url} should be valid"
     end
 
-    bad.each do |name|
-      assert new_product(name).invalid?, "#{name} should be invalid"
+    bad.each do |image_url|
+      assert new_product(image_url).invalid?, "#{image_url} should be invalid"
     end
   end
 
@@ -50,7 +56,7 @@ class ProductTest < ActiveSupport::TestCase
   def new_product(image_url)
     Product.new(
       title: "My Test",
-      description: "test",
+      description: "this is a test description",
       price: 1,
       image_url: image_url
     )

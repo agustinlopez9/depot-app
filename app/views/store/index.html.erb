@@ -1,0 +1,26 @@
+<div>
+  <h1 class="font-bold text-4xl m-1">Store</h1>
+  <hr>
+  <div id="products" class="min-w-full">
+    <% cache @products do %>
+      <% @products.each do |product| %>
+        <% cache product do %>
+          <div id="<%= dom_id product %>" class="flex flex-row my-4 p-4 items-center bg-white rounded-sm border border-slate-200 hover:shadow-md transition-all">
+            <%= image_tag(product.image_url, class: 'w-40') %>
+            <div class="flex flex-col px-4 w-full self-start">
+              <p class="my-5 font-semibold">
+                <%= product.title %>
+              </p>
+              <p class="my-5">
+                <%= sanitize(product.description) %>
+              </p>
+              <p class="price my-5">
+                <%= number_to_currency(product.price) %>
+              </p>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
