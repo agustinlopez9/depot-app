@@ -1,0 +1,10 @@
+<div id="<%= dom_id cart %>">
+  <h2 class="mb-2 font-semibold">Cart</h2>
+  <ul class="list-disc list-inside">
+    <% cart.line_items.each do |item| %>
+      <li>
+        <%= item.product.title %>
+      </li>
+    <% end %>
+  </ul>
+</div>
