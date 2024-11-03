@@ -13,6 +13,24 @@
 	    <%= number_to_currency(line_item.total_price) %>
 	  </td>
 	  <td class="text-right font-bold">
+			<div class="flex flex-row">
+			<%= button_to line_item_path(line_item, quantity: line_item.quantity - 1), method: :patch do %>
+	    	<div class="ml-2 text-white">
+					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+					  <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14" />
+					</svg>
+	    	</div>
+      <% end%>
+			<%= button_to line_item_path(line_item, quantity: line_item.quantity + 1), method: :patch do %>
+	    	<div class="ml-2 text-white">
+					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+					  <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+					</svg>
+	    	</div>
+      <% end%>
+			</div>
+	  </td>
+	  <td class="text-right font-bold">
       <%= button_to line_item, method: :delete do %>
 	    	<div class="ml-2 text-red-600">
 	    		<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">

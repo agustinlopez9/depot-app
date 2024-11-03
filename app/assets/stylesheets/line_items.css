@@ -1,4 +1,4 @@
-@keyframes line-item-hightlight {
+@keyframes line-item-highlight {
   0% {
     background-color: lightblue;
   }
@@ -8,5 +8,5 @@
 }
 
 .line-item-highlight {
-  animation: line-item-hightlight 1s;
+  animation: line-item-highlight 1s;
 }
