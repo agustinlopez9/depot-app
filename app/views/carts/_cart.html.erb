@@ -1,10 +1,17 @@
 <div id="<%= dom_id cart %>">
   <h2 class="mb-2 font-semibold">Cart</h2>
-  <ul class="list-disc list-inside">
-    <% cart.line_items.each do |item| %>
-      <li>
-        <%= item.product.title %>
-      </li>
-    <% end %>
-  </ul>
+
+	<table class="table-auto">
+
+		<%= render cart.line_items %>
+
+	  <tfoot>
+	    <tr>
+	      <th class="text-right pr-2 pt-2" colspan="3">Total:</th>
+        <td class="text-right font-bold pt-2">
+          <%= number_to_currency(cart.total_price) %>
+        </td>
+      </tr>
+    </tfoot>   
+  </table>
 </div>

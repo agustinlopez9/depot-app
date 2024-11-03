@@ -11,5 +11,9 @@
 }
 
 .user-button-primary {
-  @apply px-4 py-2 m-2 min-w-max text-white bg-blue-500 hover:bg-blue-400 rounded-md transition-all
+  @apply px-4 py-2 m-2 min-w-max text-white bg-blue-500 hover:bg-blue-400 rounded-md transition-all;
+}
+
+.cart-button {
+  @apply p-2 m-2 text-white bg-blue-500 hover:bg-blue-400 rounded-full transition-all;
 }
