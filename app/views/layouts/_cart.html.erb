@@ -1,0 +1,7 @@
+<% if cart and not cart.line_items.empty? %>
+  <section id="cart" class="sticky top-20 mt-20 m-2 p-4 h-min min-w-max bg-blue-500 text-white rounded-sm">
+    <%= render cart %>
+  </section>
+<% else %>
+  <div id="cart"></div>
+<% end %>

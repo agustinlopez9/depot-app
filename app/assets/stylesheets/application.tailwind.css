@@ -14,6 +14,10 @@
   @apply px-4 py-2 m-2 min-w-max text-white bg-blue-500 hover:bg-blue-400 rounded-md transition-all;
 }
 
+.user-button-secondary {
+  @apply px-4 py-2 m-2 min-w-max text-white bg-blue-400 hover:bg-blue-300 rounded-md transition-all;
+}
+
 .cart-button {
   @apply p-2 m-2 text-white bg-blue-500 hover:bg-blue-400 rounded-full transition-all;
 }

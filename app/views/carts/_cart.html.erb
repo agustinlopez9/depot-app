@@ -12,6 +12,8 @@
           <%= number_to_currency(cart.total_price) %>
         </td>
       </tr>
-    </tfoot>   
+    </tfoot>
+
   </table>
+  <%= button_to "Empty cart", cart, method: :delete, class: "user-button-secondary"%>
 </div>

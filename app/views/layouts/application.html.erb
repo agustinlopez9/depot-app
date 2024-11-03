@@ -66,11 +66,7 @@
       <main class="container mx-auto mt-3 px-5 flex">
         <%= yield %>
       </main>
-      <% if @cart and not @cart.line_items.empty? %>
-        <section class="sticky top-20 mt-20 m-2 p-4 h-min min-w-max bg-blue-500 text-white rounded-sm">
-          <%= render @cart %>
-        </section>
-      <% end %>
+      <%= render partial: 'layouts/cart', locals: {cart: @cart } %>
     </div>
   </body>
 </html>
